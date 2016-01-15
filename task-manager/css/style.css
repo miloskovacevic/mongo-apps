@@ -1,0 +1,12 @@
+.container {
+    margin: 50px auto ;
+}
+
+li {
+    overflow: auto;
+    font-size: 18px;
+}
+
+.btn-edit-category, .btn-delete-category{
+    margin-left: 5px;
+}
