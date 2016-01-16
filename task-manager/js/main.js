@@ -19,7 +19,11 @@ function getTasks(){
         var lista = '<ul class="list-group">';
 
         $.each(podaci, function (key, pojedinacan_podatak) {
-            lista += '<li class="list-group-item category">Task name:' + pojedinacan_podatak.task_name + ' | Category: ' + pojedinacan_podatak.category + ' | Due Date: ' + pojedinacan_podatak.due_date + ' | Is Urgent: ' + pojedinacan_podatak.is_urgent + '<div class="pull-right"> <a class="btn btn-primary btn-edit-task" data-task-id="' + pojedinacan_podatak._id.$oid + '">Edit</a><a class="btn btn-danger btn-delete-task" data-task-id="' + pojedinacan_podatak._id.$oid + '">Delete</a> </div> </li>';
+            lista += '<li class="list-group-item category">Task name:' + pojedinacan_podatak.task_name +
+            ' | Category: ' + pojedinacan_podatak.category + ' | Due Date: ' + pojedinacan_podatak.due_date +
+            ' | Is Urgent: ' + pojedinacan_podatak.is_urgent + '<div class="pull-right"> <a class="btn btn-primary btn-edit-task"' +
+            ' data-task-id="' + pojedinacan_podatak._id.$oid + '">Edit</a><a class="btn btn-danger btn-delete-task" data-task-id="'
+            + pojedinacan_podatak._id.$oid + '">Delete</a> </div> </li>';
         });
 
         lista += '</ul>';
@@ -186,7 +190,7 @@ function getTask(){
         $("#category").val(podatak.category);
         $("#due_date").val(podatak.due_date);
         if(podatak.is_urgent == 'yes'){
-            $("#is_urgent").prop('selected', true);
+            $("#is_urgent").val("yes");
         }
     });
 
