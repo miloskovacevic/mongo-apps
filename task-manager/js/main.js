@@ -183,6 +183,7 @@ function deleteTask(){
 }
 
 function getTask(){
+
     var task_id = sessionStorage.getItem('currentTaskId');
 
     $.get("https://api.mongolab.com/api/1/databases/taskmanager/collections/tasks/" + task_id + "?apiKey=" + api_key, function(podatak){
@@ -195,7 +196,6 @@ function getTask(){
     });
 
     return false;
-
 }
 
 function getCategory(){
@@ -205,7 +205,6 @@ function getCategory(){
         $("#category_name").val(podatak.category_name);
     })
 }
-
 
 function getCategoryOptions(){
     $.get('https://api.mongolab.com/api/1/databases/taskmanager/collections/categories?apiKey=' + api_key, function (podaci) {
@@ -217,3 +216,5 @@ function getCategoryOptions(){
         $("#category").append(output);
     });
 }
+
+
