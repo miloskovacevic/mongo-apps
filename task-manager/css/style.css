@@ -10,3 +10,7 @@ li {
 .btn-edit-category, .btn-delete-category{
     margin-left: 5px;
 }
+
+.btn-edit-task, .btn-delete-task{
+    margin-left: 5px;
+}
