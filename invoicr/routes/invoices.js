@@ -23,4 +23,37 @@ router.get('/:id', function (req, res) {
     })
 });
 
+router.post('/', function (req, res) {
+    var invoice = req.body;
+    Invoice.addInvoice(invoice, function(err, inv){
+        if(err){
+            res.send(err);
+        }
+        res.json(inv);
+    });
+});
+
+router.put('/:id', function(req, res){
+    var id = req.params.id;
+    var invoice = req.body;
+
+    Invoice.updateInvoice(id, invoice, {}, function (err, rezultat) {
+        if(err){
+            res.send(err);
+        }
+        res.json(rezultat);
+    })
+});
+
+router.delete('/:id', function (req, res) {
+    var id = req.params.id;
+
+    Invoice.deleteInvoice(id, function (err, rezultat) {
+        if(err){
+            res.send(err);
+        }
+        res.json(rezultat);
+    })
+});
+
 module.exports = router;

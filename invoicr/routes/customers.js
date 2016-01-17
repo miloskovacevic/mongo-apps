@@ -36,6 +36,27 @@ router.get('/:id', function (req, res) {
     })
 });
 
+router.put('/:id', function (req, res) {
+   var id = req.params.id;
+   var customer = req.body;
+    Customer.updateCustomer(id, customer, {}, function (err, customer) {
+       if(err) {
+           res.send(err);
+       }
+        res.json(customer);
+    });
+});
 
+
+router.delete('/:id', function (req, res) {
+    var id = req.params.id;
+
+    Customer.deleteCustomer(id, function (err, rezultat) {
+        if(err) {
+            res.send(err);
+        }
+        res.json(rezultat);
+    })
+});
 
 module.exports = router;

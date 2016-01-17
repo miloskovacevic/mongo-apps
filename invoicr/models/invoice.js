@@ -38,3 +38,31 @@ module.exports.getInvoiceById = function (id, cb) {
     Invoice.findById(id, cb);
 }
 
+module.exports.addInvoice = function (invoice, callback) {
+    var add = {
+        "customer": invoice.customer_id,
+        "service": invoice.service,
+        "price": invoice.price,
+        "due": invoice.due,
+        "status": invoice.status
+    };
+    Invoice.create(add, callback);
+}
+
+module.exports.updateInvoice = function (id, invoice, options, callback) {
+    var query = {_id: id};
+    var update = {
+        "service": invoice.service,
+        "price": invoice.price,
+        "due": invoice.due,
+        "status": invoice.status
+    };
+    Invoice.findOneAndUpdate(query, update, options, callback);
+}
+
+module.exports.deleteInvoice = function (id, callback) {
+    var query = {_id: id};
+    Invoice.remove(query, callback);
+}
+
+
