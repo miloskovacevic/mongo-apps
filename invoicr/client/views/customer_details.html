@@ -1,0 +1,39 @@
+<div ng-init="getSingleCustomer()">
+    <img class="pull-right img-small" src="{{singleCustomer.logo_url}}">
+    <div class="clearfix"></div>
+    <h2 class="sub-header">{{singleCustomer.first_name}} {{singleCustomer.last_name}}</h2>
+    <ul class="list-group">
+        <li class="list-group-item"><strong>Company: </strong> {{singleCustomer.company}}</li>
+        <li class="list-group-item"><strong>Email: </strong> {{singleCustomer.email}}</li>
+        <li class="list-group-item"><strong>Phone: </strong> {{singleCustomer.phone}}</li>
+        <li class="list-group-item"><strong>Street Address: </strong> {{singleCustomer.address.street}}</li>
+        <li class="list-group-item"><strong>City: </strong> {{singleCustomer.address.city}}</li>
+        <li class="list-group-item"><strong>State: </strong> {{singleCustomer.address.state}}</li>
+        <li class="list-group-item"><strong>Zip: </strong> {{singleCustomer.address.zip}}</li>
+    </ul>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Service</th>
+            <th>Price</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="fak in nizFaktura">
+            <td>{{fak._id}}</td>
+            <td>{{fak.service}}</td>
+            <td>{{fak.price}}</td>
+            <td>{{fak.status}}</td>
+            <td><a href="#/invoices/details/{{fak._id}}" class="btn btn-primary">Details</a> <a href="#/invoices/edit/{{fak._id}}" class="btn btn-default">Edit</a> <a id="deleteCustomer" class="btn btn-danger">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+
+    <br>
+</div>
